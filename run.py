@@ -90,7 +90,6 @@ def get_choices_ind():
         if validate_choices(choices_ind):
             print("Nice pick!\n")
             break
-    
     return choices_ind
 
 def validate_choices(values):
@@ -108,7 +107,6 @@ def validate_choices(values):
         return False
 
     return True
-
 
 def update_choices_worksheet(ind):
     """
