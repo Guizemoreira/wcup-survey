@@ -87,8 +87,28 @@ def get_choices_ind():
 
         choices_ind = survey_info
 
-        
+        if validate_choices(choices_ind):
+            print("Nice pick!\n")
+            break
+    
     return choices_ind
+
+def validate_choices(values):
+    """
+    Inside the try, verify name entry
+    Raises ValueError 
+    """
+    try:
+        if len(values) != 4:
+            raise ValueError(
+                "These fields are required"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
+
 
 def update_choices_worksheet(ind):
     """
