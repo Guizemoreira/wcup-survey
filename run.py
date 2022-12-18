@@ -36,8 +36,27 @@ def get_people_data():
 
         people_data = people_info
 
+        if validate_people(people_data):
+            print(f"Welcome {first_name} {surename}!\n")
+            break
 
     return people_data
+
+def validate_people(values):
+    """
+    Inside the try, verify name entry
+    Raises ValueError 
+    """
+    try:
+        if len(values) != 5:
+            raise ValueError(
+                "These fields are required"
+            )
+    except ValueError as e:
+        print(f"Invalid data: {e}, please try again.\n")
+        return False
+
+    return True
 
 def update_people_worksheet(data):
     """
