@@ -67,6 +67,39 @@ def update_people_worksheet(data):
     people_worksheet.append_row(data)
     print("People worksheet updated successfully.\n")
 
+def get_choices_ind():
+    """
+    It will start the survey questions and create a data list
+    """
+    while True:
+        print("Enter your survey answers!\n")
+        print("It is about Fifa World Cup 2022!\n")
+
+        survey_info = []
+        first_option = input("Which team would you like to win?\n")
+        survey_info.append(first_option)
+        second_option = input("Which would be your second option?\n")
+        survey_info.append(second_option)
+        good_surprise = input("Which team would be a great surprise?\n")
+        survey_info.append(good_surprise)
+        no_way = input("Which one you think has no chance?\n")
+        survey_info.append(no_way)
+
+        choices_ind = survey_info
+
+        
+    return choices_ind
+
+def update_choices_worksheet(ind):
+    """
+    Update choices worksheet, add new row with the list data provided
+    """
+
+    print("Updating people worksheet...\n")
+    choices_worksheet = SHEET.worksheet("choices")
+    choices_worksheet.append_row(ind)
+    print("Choices worksheet updated successfully.\n")
+
 def main():
     """
     Run all programm functions
@@ -74,6 +107,9 @@ def main():
     data = get_people_data()
     people_data = [str.capitalize(char) for char in data]
     update_people_worksheet(people_data)
+    ind = get_choices_ind()
+    choices_ind = [str.capitalize(char) for char in ind]
+    update_choices_worksheet(choices_ind)
 
 print("Welcome to automation part\n")
 main()
